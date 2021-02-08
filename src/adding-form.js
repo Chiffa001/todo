@@ -5,7 +5,6 @@ export default class AddingForm {
 
     onInputText = ({ target }) => {
         this._text = target.value;
-        console.log(this);
     };
 
     get el() {
@@ -18,7 +17,6 @@ export default class AddingForm {
 
     onSubmit = (e, cb) => {
         e.preventDefault();
-        console.log(cb);
         cb(this._text);
     };
 

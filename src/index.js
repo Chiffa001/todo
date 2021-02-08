@@ -19,8 +19,8 @@ todoContainerEl.before(addingForm.getEl(todoList.addTask));
 const onMakeDone = () => {
     todoList.getTodoListEl().removeEventListener("click", onMakeDone);
     todoContainerEl.innerHTML = "";
-    todoList.getEl();
-    todoList.getTodoListEl().addEventListener("click", onMakeDone);
+    
+    todoList.getEl().addEventListener("click", onMakeDone);
     todoContainerEl.append(todoList.getTodoListEl());
 };
 

@@ -8,7 +8,10 @@ export default class TodoList {
 
     addTask = (task) => {
         this._taskList.push(new TodoItem(task));
-        console.log(this);
+        if (this._todoListEl) {
+            const event = new Event("click");
+            this._todoListEl.dispatchEvent(event);
+        }
     };
 
     getTodoList() {
@@ -25,8 +28,10 @@ export default class TodoList {
 
     onMakeDone = ({ target }) => {
         const currentTodoItemEl = target.closest(".todo-item");
-        const todoId = currentTodoItemEl.dataset.todoId;
-        this.getTodoItem(+todoId).toggleDone();
+        if (currentTodoItemEl) {
+            const todoId = currentTodoItemEl.dataset.todoId;
+            this.getTodoItem(+todoId).toggleDone();
+        }
     };
 
     getEl() {

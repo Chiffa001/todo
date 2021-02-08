@@ -6,9 +6,10 @@ export default class TodoList {
         this._todoListEl = null;
     }
 
-    addTask(task) {
+    addTask = (task) => {
         this._taskList.push(new TodoItem(task));
-    }
+        console.log(this);
+    };
 
     getTodoList() {
         return this._taskList;
@@ -28,11 +29,11 @@ export default class TodoList {
         this.getTodoItem(+todoId).toggleDone();
     };
 
-    renderEl() {
+    getEl() {
         const todoListEl = document.createElement("ul");
         todoListEl.classList.add("todo-list");
 
-        todoListEl.append(...this._taskList.map((task) => task.renderEl()));
+        todoListEl.append(...this._taskList.map((task) => task.getEl()));
 
         if (this._todoListEl) {
             this._todoListEl.removeEventListener("click", this.onMakeDone);

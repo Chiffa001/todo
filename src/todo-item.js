@@ -23,7 +23,7 @@ export default class TodoItem {
         this._done = !this._done;
     }
 
-    renderEl() {
+    getEl() {
         const todoItemEl = document.createElement("li");
         todoItemEl.classList.add("todo-item");
         todoItemEl.dataset.todoId = this._id;
